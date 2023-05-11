@@ -1,8 +1,6 @@
 import ./make-test-python.nix ({ pkgs, lib, ...}:
-let
-  inherit (pkgs.postgresqlPackages) pgjwt pgtap;
-in
-{
+
+with pkgs; {
   name = "pgjwt";
   meta = with lib.maintainers; {
     maintainers = [ spinus willibutz ];
@@ -20,7 +18,7 @@ in
 
   testScript = { nodes, ... }:
   let
-    sqlSU = "${nodes.master.services.postgresql.superUser}";
+    sqlSU = "${nodes.master.config.services.postgresql.superUser}";
     pgProve = "${pkgs.perlPackages.TAPParserSourceHandlerpgTAP}";
   in
   ''

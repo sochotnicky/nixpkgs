@@ -18,7 +18,7 @@ import ./make-test-python.nix ({ pkgs, ... }:
     };
 
     containerSystem = (import ../lib/eval-config.nix {
-      inherit (pkgs.stdenv.hostPlatform) system;
+      inherit (pkgs) system;
       modules = [ container ];
     }).config.system.build.toplevel;
 
