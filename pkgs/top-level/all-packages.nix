@@ -9511,6 +9511,8 @@ with pkgs;
 
   jump = callPackage ../tools/system/jump { };
 
+  lanzaboote-tool = callPackage ../tools/system/lanzaboote/tool.nix { };
+
   larynx = callPackage ../tools/audio/larynx { };
 
   larynx-train = with python3Packages; toPythonApplication larynx-train;
