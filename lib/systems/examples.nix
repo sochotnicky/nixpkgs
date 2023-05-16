@@ -235,6 +235,17 @@ rec {
   };
 
   #
+  # UEFI
+  #
+
+  x86_64-uefi = {
+    config = "x86_64-windows";
+    rustc.config = "x86_64-unknown-uefi";
+    libc = null;
+    useLLVM = true;
+  };
+
+  #
   # Darwin
   #
 
